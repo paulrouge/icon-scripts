@@ -65,3 +65,7 @@ amount = 4
 price = 5
 value = (amount*price) * 10**18
 # presaleMint(icon_service, 2, score_address, value, wallet, amount)
+
+"""
+making a loop for setting the new uri of each nft
+"""

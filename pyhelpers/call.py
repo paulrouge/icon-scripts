@@ -45,15 +45,15 @@ def deployContract(icon_service, nid, wallet, filename, params):
         .step_limit(100_000_000_000)\
         .nid(nid)\
         .nonce(100)\
-        .content_type("application/zip")\
+        .content_type("application/java")\
         .content(getBytesFile(filename))\
         .params(params)\
         .build()
     
     # Returns the signed transaction object having a signature
     signed_transaction = SignedTransaction(transaction, wallet)
-    # tx = icon_service.send_transaction(signed_transaction)
-    # print(tx)
+    tx = icon_service.send_transaction(signed_transaction)
+    print(tx)
 
 def getBytesFile(filename):
     with open(f'jar/{filename}', "rb") as binary_file:
