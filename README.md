@@ -1,16 +1,23 @@
 # scripts using pyenv
 
 ## created a pyenv with
+```bash
 pipenv install --dev
-
+```
+```bash
 // or, if above fails
 pipenv install --python 3.9
+```
 
 ## run shell in virtualenv
+```bash 
 pipenv shell
+```
 
 ## install the ICON SDK
+```bash
 pipenv install iconsdk
+```
 
 Now you should be able the run the script in main.py
 
