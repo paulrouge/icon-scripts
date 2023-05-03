@@ -1,8 +1,17 @@
 from iconsdk.icon_service import IconService
 from iconsdk.providers.http_provider import HTTPProvider
 from iconsdk.wallet.wallet import KeyWallet
+from pyhelpers.call import deployContract
 from pyhelpers.craftcontract import (
-    setPresalePrice, openPresale, closePresale, addWhitelist, presaleMint)
+    setPresalePrice,
+    openPresale,
+    closePresale,
+    addWhitelist,
+    presaleMint,
+    openRegularSale,
+    closeRegularSale,
+    setNewTokenUri
+)
 
 """
 First we set up some configs to connect to the ICON network.
@@ -17,6 +26,15 @@ icon_service = IconService(HTTPProvider(lisbon, 3))
 
 # Load a wallet
 wallet = KeyWallet.load("../wallets/test_keystore_01", "password")
+
+# DEPLOY CONTRACT AT 'JAR' FOLDER
+filename = 'app-0.1.0-optimized.jar'
+params = {
+    "TOBEREVEALED_URI": "TestURI",
+    "MAX_SALES": 5000,
+}
+
+deployContract(icon_service, 2, wallet, filename, params) 
 
 # address to call - deployed nft contract
 score_address = "cxd5a002cea3110f6f843f6bd0e8781981c0aca377"
@@ -39,9 +57,7 @@ Go through them step by step, if you're not sure what to do please reach out to 
 
 """
 add whitelist - last param is list of addresses.
-- example adding multiple addresses at once ["hx_adr1", "hx_adr2", "hx_adr3"]
-- example adding one address ["hx_adr1"]
-"""
+- example adding multiple addresses at once ["hx_adr1", "hx_adr2", "hx_adr3"] - example adding one address ["hx_adr1"] """
 # addWhitelist(icon_service, 2, score_address, wallet, ["hx0bed8daee97f616eea33d1344e682e013cc8523d"])
 
 """ mint nft - last param is amount """
