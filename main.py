@@ -48,4 +48,4 @@ add whitelist - last param is list of addresses.
 amount = 4
 price = 5
 value = (amount*price) * 10**18
-presaleMint(icon_service, 2, score_address, value, wallet, amount)
+# presaleMint(icon_service, 2, score_address, value, wallet, amount)

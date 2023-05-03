@@ -1,13 +1,7 @@
 # scripts using pyenv
 
-## created a pyenv with
-```bash
-pipenv install --dev
-```
-```bash
-# or, if above fails
-pipenv install --python 3.9
-```
+__requirements:__
+- pipenv
 
 ## run shell in virtualenv
 ```bash 
