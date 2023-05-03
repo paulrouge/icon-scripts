@@ -5,7 +5,7 @@
 pipenv install --dev
 ```
 ```bash
-// or, if above fails
+# or, if above fails
 pipenv install --python 3.9
 ```
 
