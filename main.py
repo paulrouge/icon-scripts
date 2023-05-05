@@ -46,7 +46,7 @@ score_address = "cxd5a002cea3110f6f843f6bd0e8781981c0aca377"
 
 """
 From here on out, we can call functions from the contract. 
-They are set up in pyhelpers/craftcontract.py
+They are set up in pyhelpers/craftcontract.py.
 
 Go through them step by step, 
 if you're not sure what to do please reach out to me on discord.
@@ -87,8 +87,6 @@ price = 10 # 10 ICX
 
 """ open regular sale """
 # openRegularSale(icon_service, nid, score_address, wallet)
-
-
 
 
 
