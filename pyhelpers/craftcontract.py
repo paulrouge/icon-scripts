@@ -28,22 +28,38 @@ def presaleMint(icon_service, nid, score_address, value, wallet, amount):
 
     makeTransaction(icon_service, nid, score_address, "presaleMint", params, value, wallet)
 
-def openRegularSale(icon_service, nid, score_address, wallet):
-    makeTransaction(icon_service, nid, score_address, "openRegularSale", {}, 0, wallet)
-
-def closeRegularSale(icon_service, nid, score_address, wallet):
-    makeTransaction(icon_service, nid, score_address, "closeRegularSale", {}, 0, wallet)
-
-def setNewTokenUri(icon_service, nid, score_address, wallet, tokenId, uri):
+def setInternalUri(icon_service, nid, score_address, wallet, tokenId, uri):
     params = {
-        "_id": hex(tokenId),
+        "_tokenId": hex(tokenId),
         "_uri": uri
     }
 
-    makeTransaction(icon_service, nid, score_address, "nftReveal", params, 0, wallet)
+    makeTransaction(icon_service, nid, score_address, "setInternalUri", params, 0, wallet)
+
+def revealTokenUris(icon_service, nid, score_address, wallet):
+    makeTransaction(icon_service, nid, score_address, "revealTokenUris", {}, 0, wallet)
+
+def setNewTokenUri(icon_service, nid, score_address, wallet, tokenId, uri):
+    params = {
+        "_tokenId": hex(tokenId),
+        "_uri": uri
+    }
+
+    makeTransaction(icon_service, nid, score_address, "setTokenUri", params, 0, wallet)
 
 def enableWhitelist(icon_service, nid, score_address, wallet):
     makeTransaction(icon_service, nid, score_address, "enableWhitelist", {}, 0, wallet)
 
 def disableWhitelist(icon_service, nid, score_address, wallet):
     makeTransaction(icon_service, nid, score_address, "disableWhitelist", {}, 0, wallet)
+
+def setPostReveal(icon_service, nid, score_address, wallet):
+    makeTransaction(icon_service, nid, score_address, "setPostReveal", {}, 0, wallet)
+
+def freeMint(icon_service, nid, score_address, wallet, amount, receiver):
+    params = {
+        "_amount" : hex(amount),
+        "_address": receiver
+    }
+
+    makeTransaction(icon_service, nid, score_address, "freeMint", params, 0, wallet)

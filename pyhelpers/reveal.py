@@ -1,13 +1,22 @@
 import os
 from .pad import pad
-from .craftcontract import setNewTokenUri
+from .craftcontract import setInternalUri
 
-def reveal(icon_service, nid, score_address, wallet, amount_of_nfts):
+def setInternalUris(icon_service, nid, score_address, wallet, amount_of_nfts):
     # first verify that user wants to run this script
 
-    userInput = input(f"Are you sure you want to run reveal? This will do {amount_of_nfts} transactions. (y/n): ") 
+    userInput = input(f"""
+    Are you sure you want to set all the internal uris? 
+
+    This will do {amount_of_nfts} transactions. 
+    So be sure to have enough ICX in your wallet!
+
+    (y/n)
+
+    """) 
+    
     if userInput != "y":
-        print("exiting...")
+        print("\nexiting...\n")
         exit()
 
     # count amount of files in /metadata_files folder
@@ -29,4 +38,4 @@ def reveal(icon_service, nid, score_address, wallet, amount_of_nfts):
         # get the complete uri
         uri = base_uri + file_name
 
-        setNewTokenUri(icon_service, nid, score_address, wallet, i, uri)
+        setInternalUri(icon_service, nid, score_address, wallet, i, uri)
