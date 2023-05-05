@@ -34,10 +34,16 @@ def openRegularSale(icon_service, nid, score_address, wallet):
 def closeRegularSale(icon_service, nid, score_address, wallet):
     makeTransaction(icon_service, nid, score_address, "closeRegularSale", {}, 0, wallet)
 
-def setNewTokenUri(icon_service, nid, score_address, wallet, tokenId_hex, uri):
+def setNewTokenUri(icon_service, nid, score_address, wallet, tokenId, uri):
     params = {
-        "_id": tokenId_hex,
+        "_id": hex(tokenId),
         "_uri": uri
     }
 
     makeTransaction(icon_service, nid, score_address, "nftReveal", params, 0, wallet)
+
+def enableWhitelist(icon_service, nid, score_address, wallet):
+    makeTransaction(icon_service, nid, score_address, "enableWhitelist", {}, 0, wallet)
+
+def disableWhitelist(icon_service, nid, score_address, wallet):
+    makeTransaction(icon_service, nid, score_address, "disableWhitelist", {}, 0, wallet)
