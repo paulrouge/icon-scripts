@@ -45,9 +45,11 @@ params = {
 score_address = "cxd5a002cea3110f6f843f6bd0e8781981c0aca377"
 
 """
-From here on out, we can call functions from the contract. They are set up in pyhelpers/craftcontract.py
+From here on out, we can call functions from the contract. 
+They are set up in pyhelpers/craftcontract.py
 
-Go through them step by step, if you're not sure what to do please reach out to me on discord.
+Go through them step by step, 
+if you're not sure what to do please reach out to me on discord.
 """
 
 """ Enable whitelisting ( on default it's disabled. Also wl'ing can only be applied on the presale, not the regular sale ) """
@@ -55,7 +57,6 @@ Go through them step by step, if you're not sure what to do please reach out to 
 
 """ Disable whitelisting (if you want) """
 # disableWhitelist(icon_service, nid, score_address, wallet)
-
 
 """ Frist set presale price """
 price = 5 # 5 ICX
