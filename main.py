@@ -2,7 +2,7 @@ from iconsdk.icon_service import IconService
 from iconsdk.providers.http_provider import HTTPProvider
 from iconsdk.wallet.wallet import KeyWallet
 from pyhelpers.call import deployContract
-from pyhelpers.reveal import setInternalUris
+from pyhelpers.reveal import setInternalUris, handleMissedTokenids
 from pyhelpers.craftcontract import (
     setPresalePrice,
     openPresale,
@@ -15,6 +15,7 @@ from pyhelpers.craftcontract import (
     setPostReveal,
     revealTokenUris,
     freeMint
+
 )
 
 """
@@ -135,3 +136,5 @@ amount = 1
 price = 5
 value = (amount*price) * 10**18
 # presaleMint(icon_service, nid, score_address, value, wallet, amount)
+
+handleMissedTokenids(icon_service, nid, score_address, wallet)
