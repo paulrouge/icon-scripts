@@ -136,5 +136,3 @@ amount = 1
 price = 5
 value = (amount*price) * 10**18
 # presaleMint(icon_service, nid, score_address, value, wallet, amount)
-
-handleMissedTokenids(icon_service, nid, score_address, wallet)

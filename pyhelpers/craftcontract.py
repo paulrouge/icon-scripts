@@ -63,3 +63,10 @@ def freeMint(icon_service, nid, score_address, wallet, amount, receiver):
     }
 
     makeTransaction(icon_service, nid, score_address, "freeMint", params, 0, wallet)
+
+def setCraftEscrow(icon_service, nid, score_address, wallet, craftEscrow):
+    params = {
+        "_address": craftEscrow
+    }
+
+    makeTransaction(icon_service, nid, score_address, "setCraftEscrow", params, 0, wallet)
