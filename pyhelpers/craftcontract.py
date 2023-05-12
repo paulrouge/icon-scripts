@@ -64,9 +64,16 @@ def freeMint(icon_service, nid, score_address, wallet, amount, receiver):
 
     makeTransaction(icon_service, nid, score_address, "freeMint", params, 0, wallet)
 
-def setCraftEscrow(icon_service, nid, score_address, wallet, craftEscrow):
+# def setCraftEscrow(icon_service, nid, score_address, wallet, craftEscrow):
+#     params = {
+#         "_address": craftEscrow
+#     }
+
+#     makeTransaction(icon_service, nid, score_address, "setCraftEscrow", {"_address": "cx9c4698411c6d9a780f605685153431dcda04609f"}, 0, wallet)
+
+def editUnrevealURI(icon_service, nid, score_address, wallet, uri):
     params = {
-        "_address": craftEscrow
+        "_uri": uri
     }
 
-    makeTransaction(icon_service, nid, score_address, "setCraftEscrow", params, 0, wallet)
+    makeTransaction(icon_service, nid, score_address, "setUnreaveldURI", params, 0, wallet)

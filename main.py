@@ -1,7 +1,7 @@
 from iconsdk.icon_service import IconService
 from iconsdk.providers.http_provider import HTTPProvider
 from iconsdk.wallet.wallet import KeyWallet
-from pyhelpers.call import deployContract
+from pyhelpers.call import deployContract, reDeployContract
 from pyhelpers.reveal import setInternalUris, handleMissedTokenids
 from pyhelpers.craftcontract import (
     setPresalePrice,
@@ -14,7 +14,8 @@ from pyhelpers.craftcontract import (
     disableWhitelist,
     setPostReveal,
     revealTokenUris,
-    freeMint
+    freeMint,
+    editUnrevealURI
 
 )
 
@@ -47,6 +48,8 @@ params = {
 
 # address to call -> the deployed nft contract
 score_address = "cx0caaa524bcc79358fe24303a9251bf8d47546413"
+
+
 
 """
 From here on out, we can call functions from the contract. 
@@ -136,3 +139,10 @@ amount = 1
 price = 5
 value = (amount*price) * 10**18
 # presaleMint(icon_service, nid, score_address, value, wallet, amount)
+
+# be carefull with this one!
+# reDeployContract(icon_service, nid, wallet, score_address, filename, params)
+
+""" edit unreveal uri """
+new_uri = "testssssss.json"
+editUnrevealURI(icon_service, nid, score_address, wallet, new_uri)
