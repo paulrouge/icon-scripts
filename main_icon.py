@@ -55,11 +55,11 @@ def makeXCall():
     # params for the sendCallMessage method of the xcall contract
     params = {
         "_to": btpAddressDApp,
-        "_data": utf8ToHex("revertMessage"),
+        "_data": utf8ToHex("makeMessage, 1, message part 1, 0x0"),
     }
 
     # get the fee for the xcall call
-    fee =  makeCall(icon_service, XCALL_CONTRACT_BERLIN, "getFee", {"_net":BTP_ADDRESS_BSC,"_rollback":True}, wallet)
+    fee =  makeCall(icon_service, XCALL_CONTRACT_BERLIN, "getFee", {"_net":BTP_ADDRESS_BSC,"_rollback":False}, wallet)
     value = int(fee, 16)
 
     # send the xcall transaction 
