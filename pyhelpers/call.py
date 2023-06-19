@@ -11,13 +11,13 @@ def makeCall(icon_service, score_address, method, params, wallet):
         .build()
 
     result = icon_service.call(call)
-    print(result)
+    return result
 
 def makeTransaction(icon_service,nid, score_address, method, params, value, wallet):
     txObj = CallTransactionBuilder() \
         .from_(wallet.get_address()) \
         .to(score_address) \
-        .step_limit(100000000) \
+        .step_limit(100_000_000_000) \
         .nid(nid) \
         .nonce(100) \
         .version(3) \
@@ -28,7 +28,8 @@ def makeTransaction(icon_service,nid, score_address, method, params, value, wall
     
     signed_transaction = SignedTransaction(txObj, wallet)
     tx_hash = icon_service.send_transaction(signed_transaction)
-    print(tx_hash)
+    
+    return tx_hash
 
 def deployContract(icon_service, nid, wallet, filename, params):
 
@@ -64,7 +65,7 @@ def getBytesFile(filename):
 def reDeployContract(icon_service, nid, wallet, to, filename, params):
 
     # Ask user for yes or no to continue
-    verify = input("Are you sure you want to deploy this contract? (y/n): ")
+    verify = input("Are you sure you want to re-deploy this contract? (y/n): ")
     if verify != "y":
         print("Aborting...")
         return
